@@ -1,8 +1,8 @@
 CoIIoT SDK
 ==========
 
-Данный пакет включает в себя тайпинги для написания бизнес правил на `Python 3.7` для `VK IoT Platform`, а 
-также утилиту командой строки для работы с HTTP API платформы.
+Данный пакет включает в себя тайпинги для написания бизнес правил на `Python 3` для `VK IoT Platform`.
+Использование coiiot_sdk в среде разработки повышает удобство написания правил за счет автодополнения и анализа типов.
 
 ## Installation
 
@@ -10,38 +10,14 @@ CoIIoT SDK
     pip install coiiot_sdk-0.0.1.tar.gz
 ```
 
-## Usage
+## Example
 
-### Инициализируем проект
-```bash
-    coiiot-cli init --key "my-api-key" --addr "http://platform-addr"
+```python
+from coiiot_sdk import user_logs, cron_context
+
+logger = user_logs.get_logger()
+ctx = cron_context.current()
+
+logger.info(f'rule_name={ ctx.rule.name }')
+logger.info(f'schedule_name={ ctx.schedule.name }')
 ```
-
-### Создаём новое правило
-
-Для создания нового правила необходимо выполнить команду
-
-```bash
-    coiiot-cli rules new test_rule
-```
-
-Команда создаст новое правило с именем `test_rule` из шаблона по умолчанию на файловой системе в папке `./rules` и
-опубликует это правило в платформе (HTTP POST request).
-
-### Сохраняем изменения
-
-Для сохранения изменений в правиле необходимо выполнить команду
-```bash
-    coiiot-cli rules commit test_rule
-```
-
-Команда сохранит правило с именем `test_rule` из папки `./rules` в платформе (HTTP PATCH request).
-
-### Получаем из платформы существующее правило
-
-Для получения из платформы существующего правила необходимо выполнить команду
-```bash
-    coiiot-cli rules fetch test_rule
-```
-
-Команда вытянет из платформы правило с именем `test_rule` и поместит его в папку `./rules` (HTTP GET request)

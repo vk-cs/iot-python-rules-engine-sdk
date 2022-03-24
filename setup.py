@@ -8,15 +8,7 @@ setuptools.setup(
     description="SDK для разработки правил IoT",
     url="https://github.com/vk-cs/iot-python-rules-engine-sdk",
     packages=setuptools.find_packages(include="coiiot_sdk.*"),
-    install_requires=[
-        "click==8.0.4",
-        "requests==2.27.1",
-        "pyyaml==6.0",
-    ],
-    entry_points ={
-        "console_scripts": [
-            "coiiot-cli = coiiot_sdk.cli:cli"
-        ]
-    },
+    install_requires=[],
+    entry_points ={},
     python_requires=">=3.7",
 )
