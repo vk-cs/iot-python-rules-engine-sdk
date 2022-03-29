@@ -1,8 +1,8 @@
 CoIIoT SDK
 ==========
 
-Данный пакет включает в себя тайпинги для написания бизнес правил на `Python 3` для `VK IoT Platform`.
-Использование coiiot_sdk в среде разработки повышает удобство написания правил за счет автодополнения и анализа типов.
+This package includes classes and functions for writing business rules in `Python 3` for `VK IoT Platform`.
+Using coiiot_sdk in the development environment improves the convenience of writing rules through autocompletion and type hints.
 
 ## Installation
 
